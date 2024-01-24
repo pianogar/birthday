@@ -1,0 +1,119 @@
+import java.util.*;
+
+public class Birthday {
+    public static void main(String[] args) {
+        Scanner scr = new Scanner(System.in);
+        System.out.println("give me your birthday");
+        String B = scr.nextLine();
+        System.out.println("give me the date");
+        String D = scr.nextLine();
+        int b = 0;
+        int d = 0;
+        if (B.substring(0, B.indexOf("/")).toLowerCase().equals("febuary")) {
+            if (B.substring(B.indexOf("/") + 1, B.lastIndexOf("/")).equals("29")) {
+                System.out.println("🖕");
+            }
+        } else {
+            switch (B.substring(0, B.indexOf("/")).toLowerCase()) {
+                case "january":
+                    b += 0;
+                    break;
+                case "febuary":
+                    b += 31;
+                    break;
+                case "march":
+                    b += 59;
+                    break;
+                case "april":
+                    b += 90;
+                    break;
+                case "may":
+                    b += 120;
+                    break;
+                case "june":
+                    b += 151;
+                    break;
+                case "july":
+                    b += 181;
+                    break;
+                case "august":
+                    b += 212;
+                    break;
+                case "september":
+                    b += 243;
+                    break;
+                case "october":
+                    b += 274;
+                    break;
+                case "november":
+                    b += 304;
+                    break;
+                case "december":
+                    b += 335;
+                    break;
+            }
+            b += Integer.parseInt(B.substring(B.indexOf("/") + 1, B.lastIndexOf("/")));
+            switch (D.substring(0, D.indexOf("/")).toLowerCase()) {
+                case "january":
+                    d += 0;
+                    break;
+                case "febuary":
+                    d += 31;
+                    break;
+                case "march":
+                    d += 59;
+                    break;
+                case "april":
+                    d += 90;
+                    break;
+                case "may":
+                    d += 120;
+                    break;
+                case "june":
+                    d += 151;
+                    break;
+                case "july":
+                    d += 181;
+                    break;
+                case "august":
+                    d += 212;
+                    break;
+                case "september":
+                    d += 243;
+                    break;
+                case "october":
+                    d += 274;
+                    break;
+                case "november":
+                    d += 304;
+                    break;
+                case "december":
+                    d += 335;
+                    break;
+            }
+            d += Integer.parseInt(D.substring(D.indexOf("/") + 1, D.lastIndexOf("/")));
+            int numer = 0;
+            int denom = 365;
+            if (b >= d) {
+                numer = (d + 365) - b;
+            } else if (b < d) {
+                numer = (365) - ((b + 365) - d);
+            }
+            boolean v = true;
+            int i = 365;
+            while (v) {
+                if (numer % i == 0 && denom % i == 0) {
+                    numer = numer / i;
+                    denom = denom / i;
+                    v = false;
+                } else
+                    i--;
+            }
+            if (numer == 1 && denom == 1) {
+                System.out.println("It is your birthday");
+            } else {
+                System.out.println("It is your " + numer + "/" + denom + " birthday");
+            }
+        }
+    }
+}
